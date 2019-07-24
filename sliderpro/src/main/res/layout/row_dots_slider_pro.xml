@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:id="@+id/dot_lay"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
+>
+
+<ImageView android:layout_width="wrap_content"
+           android:src="@drawable/indicator_dot_enable"
+           android:id="@+id/dot_image"
+           android:layout_height="match_parent"
+           android:adjustViewBounds="true"
+/>
+
+</RelativeLayout>
