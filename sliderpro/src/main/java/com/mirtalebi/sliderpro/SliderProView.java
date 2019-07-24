@@ -33,6 +33,7 @@ public class SliderProView extends RelativeLayout {
     private int realPosition = 0;
     private CountDownTimer countDownTimer;
     private int defaultPosition = 0;
+    private boolean isStarted = false;
 
     public void setDuration(long duration) {
         this.duration = duration;
@@ -68,6 +69,7 @@ public class SliderProView extends RelativeLayout {
             viewPager.setCurrentItem(0 , true);
             return;
         }
+        isStarted = true;
         countDownTimer = new CountDownTimer(duration, 1000){
             public void onTick(long millisUntilFinished){
 //                counter++;
@@ -100,7 +102,7 @@ public class SliderProView extends RelativeLayout {
 
     private void init(){
         viewPager.setAdapter(sliderFragmentPagerAdapter);
-        loadNext();
+//        loadNext();
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -180,7 +182,9 @@ public class SliderProView extends RelativeLayout {
 //            sliderFragmentPagerAdapter.addSlider(sliderFragmentPagerAdapter.getSlideModels().get(sliderFragmentPagerAdapter.getSlideModels().size() - 1));
 
 //        }
-        loadNext();
+        if (!isStarted) {
+            loadNext();
+        }
     }
 
     public void setUpSliderIndicator(SliderProIndicatorView sliderIndicator){
