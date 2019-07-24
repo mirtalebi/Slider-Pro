@@ -180,6 +180,7 @@ public class SliderProView extends RelativeLayout {
 //            sliderFragmentPagerAdapter.addSlider(sliderFragmentPagerAdapter.getSlideModels().get(sliderFragmentPagerAdapter.getSlideModels().size() - 1));
 
 //        }
+        loadNext();
     }
 
     public void setUpSliderIndicator(SliderProIndicatorView sliderIndicator){
