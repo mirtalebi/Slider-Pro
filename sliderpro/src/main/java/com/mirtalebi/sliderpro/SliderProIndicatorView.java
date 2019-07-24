@@ -80,6 +80,7 @@ public class SliderProIndicatorView extends RelativeLayout {
 
     public void initIndicator(List<SlideModel> slideModelList) {
         selectionCallBacks = new ArrayList<>();
+        linearLayout.removeAllViews();
         for (SlideModel slideModel : slideModelList) {
 //            final View v = findViewById(R.id.dot);
             final View view = LayoutInflater.from(getContext()).inflate(R.layout.row_dots_slider_pro, null, false);

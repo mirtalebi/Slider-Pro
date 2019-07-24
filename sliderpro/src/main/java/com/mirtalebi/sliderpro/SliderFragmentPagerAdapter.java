@@ -19,6 +19,9 @@ class SliderFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
+        if (slideModels.size() == 1){
+            return 1;
+        }
         return Integer.MAX_VALUE;
     }
 
@@ -43,6 +46,9 @@ class SliderFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+        if (slideModels.size() == 1){
+            SlideFragment.newInstance(slideModels.get(0));
+        }
         return SlideFragment.newInstance(slideModels.get(position%slideModels.size()));
     }
 }

@@ -64,11 +64,16 @@ public class SliderProView extends RelativeLayout {
     }
 
     private void loadNext(){
+        if (sliderFragmentPagerAdapter.getSlideModels().size() == 1){
+            viewPager.setCurrentItem(0 , true);
+            return;
+        }
         countDownTimer = new CountDownTimer(duration, 1000){
             public void onTick(long millisUntilFinished){
 //                counter++;
             }
             public  void onFinish(){
+
                 if (sliderFragmentPagerAdapter.getSlideModels().size() == 0 || sliderFragmentPagerAdapter.getSlideModels().size() == 1){
                     return;
                 }
@@ -105,7 +110,9 @@ public class SliderProView extends RelativeLayout {
 
             @Override
             public void onPageSelected(int pos) {
-                countDownTimer.cancel();
+                try {
+                    countDownTimer.cancel();
+                } catch (Exception ignored){}
                 int t = viewPager.getCurrentItem()%sliderFragmentPagerAdapter.getSlideModels().size() - position;
                 realPosition += t;
                 position = viewPager.getCurrentItem()%sliderFragmentPagerAdapter.getSlideModels().size();
@@ -121,7 +128,9 @@ public class SliderProView extends RelativeLayout {
             @Override
             public void onPageScrollStateChanged(int state) {
 
-                countDownTimer.cancel();
+                try {
+                    countDownTimer.cancel();
+                } catch (Exception ignored){}
                 int t = viewPager.getCurrentItem()%sliderFragmentPagerAdapter.getSlideModels().size() - position;
                 realPosition += t;
                 position = viewPager.getCurrentItem()%sliderFragmentPagerAdapter.getSlideModels().size();

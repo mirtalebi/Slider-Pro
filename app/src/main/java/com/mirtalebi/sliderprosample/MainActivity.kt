@@ -24,10 +24,10 @@ class MainActivity : AppCompatActivity() {
         val v5 = LayoutInflater.from(applicationContext).inflate(R.layout.slider5 , null)
 //        findViewById<RelativeLayout>(R.id.test).addView(v)
         sliderProView.addSlide(v);
-        sliderProView.addSlide(v2);
-        sliderProView.addSlide(v3);
-        sliderProView.addSlide(v4);
-        sliderProView.addSlide(v5);
+//        sliderProView.addSlide(v2);
+//        sliderProView.addSlide(v3);
+//        sliderProView.addSlide(v4);
+//        sliderProView.addSlide(v5);
         sliderProView.setUpSliderIndicator(slider_indicator)
 //        sliderProView.addSlide(v);
 //        sliderProView.addSlide(v);
