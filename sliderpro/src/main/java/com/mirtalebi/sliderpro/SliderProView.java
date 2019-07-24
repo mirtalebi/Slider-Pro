@@ -77,7 +77,7 @@ public class SliderProView extends RelativeLayout {
                 }
                 position += 1;
                 realPosition += 1;
-                viewPager.setCurrentItem(realPosition , true);
+                viewPager.setCurrentItem(10 * sliderFragmentPagerAdapter.getSlideModels().size() + position , true);
                 loadNext();
             }
         }.start();
@@ -89,12 +89,12 @@ public class SliderProView extends RelativeLayout {
 
     public void init(FragmentManager fragmentManager){
         sliderFragmentPagerAdapter = new SliderFragmentPagerAdapter(fragmentManager);
+        viewPager = findViewById(R.id.slider_pro_pager);
+        isInited = true;
     }
 
     private void init(){
-        viewPager = findViewById(R.id.slider_pro_pager);
         viewPager.setAdapter(sliderFragmentPagerAdapter);
-        isInited = true;
         loadNext();
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -123,7 +123,7 @@ public class SliderProView extends RelativeLayout {
 
                 countDownTimer.cancel();
                 int t = viewPager.getCurrentItem()%sliderFragmentPagerAdapter.getSlideModels().size() - position;
-                realPosition += t;
+//                realPosition += t;
                 position = viewPager.getCurrentItem()%sliderFragmentPagerAdapter.getSlideModels().size();
                 if (isInitedIndicator){
                     for (int i = 0; i < indicatorView.getSelectionCallBacks().size(); i++){
@@ -178,7 +178,7 @@ public class SliderProView extends RelativeLayout {
         sliderIndicator.initIndicator(sliderFragmentPagerAdapter.getSlideModels());
         this.indicatorView = sliderIndicator;
         viewPager.setCurrentItem(10 * sliderFragmentPagerAdapter.getSlideModels().size() + defaultPosition , false);
-        realPosition = 10 * sliderFragmentPagerAdapter.getSlideModels().size() + defaultPosition;
+//        realPosition = 10 * sliderFragmentPagerAdapter.getSlideModels().size() + defaultPosition;
         position = defaultPosition;
         if (isInitedIndicator){
             for (int i = 0; i < indicatorView.getSelectionCallBacks().size(); i++){
