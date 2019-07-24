@@ -89,6 +89,9 @@ public class SliderProView extends RelativeLayout {
 
     public void init(FragmentManager fragmentManager){
         sliderFragmentPagerAdapter = new SliderFragmentPagerAdapter(fragmentManager);
+    }
+
+    private void init(){
         viewPager = findViewById(R.id.slider_pro_pager);
         viewPager.setAdapter(sliderFragmentPagerAdapter);
         isInited = true;
@@ -146,6 +149,10 @@ public class SliderProView extends RelativeLayout {
             SlideModel slideModel3 = new SlideModel();
             slideModel3.setView(view);
             sliderFragmentPagerAdapter.addSlider(slideModel3);
+
+            if (sliderFragmentPagerAdapter.getSlideModels().size() == 1){
+                init();
+            }
 
 //            SlideModel slideModel2 = new SlideModel();
 //            slideModel2.setView(view);
