@@ -19,10 +19,10 @@ class SliderFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        if (slideModels.size() == 1){
-            return 1;
-        }
-        return Integer.MAX_VALUE;
+//        if (slideModels.size() == 1){
+//            return 1;
+//        }
+        return slideModels.size();
     }
 
     void addSlider(SlideModel model){

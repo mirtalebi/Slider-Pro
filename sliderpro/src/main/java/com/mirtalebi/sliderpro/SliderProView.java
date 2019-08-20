@@ -30,7 +30,6 @@ public class SliderProView extends RelativeLayout {
     private long duration = 5000;
     private ViewPager viewPager;
     private int position = 0;
-    private int realPosition = 0;
     private CountDownTimer countDownTimer;
     private int defaultPosition = 0;
     private boolean isStarted = false;
@@ -83,8 +82,7 @@ public class SliderProView extends RelativeLayout {
                     position = -1;
                 }
                 position += 1;
-                realPosition += 1;
-                viewPager.setCurrentItem(realPosition , true);
+                viewPager.setCurrentItem(position , true);
                 loadNext();
             }
         }.start();
@@ -116,7 +114,6 @@ public class SliderProView extends RelativeLayout {
                     countDownTimer.cancel();
                 } catch (Exception ignored){}
                 int t = viewPager.getCurrentItem()%sliderFragmentPagerAdapter.getSlideModels().size() - position;
-                realPosition += t;
                 position = viewPager.getCurrentItem()%sliderFragmentPagerAdapter.getSlideModels().size();
                 if (isInitedIndicator){
                     for (int i = 0; i < indicatorView.getSelectionCallBacks().size(); i++){
@@ -134,7 +131,6 @@ public class SliderProView extends RelativeLayout {
                     countDownTimer.cancel();
                 } catch (Exception ignored){}
                 int t = viewPager.getCurrentItem()%sliderFragmentPagerAdapter.getSlideModels().size() - position;
-                realPosition += t;
                 position = viewPager.getCurrentItem()%sliderFragmentPagerAdapter.getSlideModels().size();
                 if (isInitedIndicator){
                     for (int i = 0; i < indicatorView.getSelectionCallBacks().size(); i++){
@@ -151,12 +147,6 @@ public class SliderProView extends RelativeLayout {
         if (!isInited){
             throw new Exception("You must Init SliderPro: init(FragmentManager fragmentManager)");
         }
-
-//        if (sliderFragmentPagerAdapter.getCount() == 0){
-//            SlideModel slideModel = new SlideModel();
-//            slideModel.setView(view);
-//            sliderFragmentPagerAdapter.addSlider(slideModel);
-
             SlideModel slideModel3 = new SlideModel();
             slideModel3.setView(view);
             sliderFragmentPagerAdapter.addSlider(slideModel3);
@@ -164,24 +154,6 @@ public class SliderProView extends RelativeLayout {
             if (sliderFragmentPagerAdapter.getSlideModels().size() == 1){
                 init();
             }
-
-//            SlideModel slideModel2 = new SlideModel();
-//            slideModel2.setView(view);
-//            sliderFragmentPagerAdapter.addSlider(slideModel2);
-//        } else {
-//            sliderFragmentPagerAdapter.removeSlide(0);
-//            SlideModel slideModel2 = new SlideModel();
-//            slideModel2.setView(view);
-//            sliderFragmentPagerAdapter.addSliderAt(slideModel2 , 0);
-//
-//            SlideModel slideModel3 = new SlideModel();
-//            slideModel3.setView(view);
-//            sliderFragmentPagerAdapter.addSlider(slideModel3);
-
-//            sliderFragmentPagerAdapter.removeSlide(sliderFragmentPagerAdapter.getCount() - 1);
-//            sliderFragmentPagerAdapter.addSlider(sliderFragmentPagerAdapter.getSlideModels().get(sliderFragmentPagerAdapter.getSlideModels().size() - 1));
-
-//        }
         if (!isStarted) {
             loadNext();
         }

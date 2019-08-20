@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         sliderProView.addSlide(v4);
         sliderProView.addSlide(v5);
         sliderProView.setUpSliderIndicator(slider_indicator)
+
+//        slider_indicator.s
 //        sliderProView.addSlide(v);
 //        sliderProView.addSlide(v);
 //        sliderProView.addSlide(v);
